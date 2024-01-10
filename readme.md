@@ -29,7 +29,7 @@ docker pull mysql
 ```
 
 ```sh
-docker run -p 3306:3306 -d --name mysql -v ./docker/etc/my.cnf:/etc/mysql/my.cnf --privileged=true -e MYSQL_ROOT_PASSWORD=root mysql
+docker run -p 3306:3306 -d --name mysql -v ./docker/mysql/my.cnf:/etc/mysql/my.cnf --privileged=true -e MYSQL_ROOT_PASSWORD=root mysql
 ```
 
 -p 3306:3306 :将容器的3306端口映射到主机的3306端口   
