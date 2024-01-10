@@ -40,3 +40,7 @@ docker run -p 3306:3306 -d --name mysql -v ./docker/mysql/my.cnf:/etc/mysql/my.c
 #### 设置mysql连接权限
 create user `starsky`@`%` identified by "root";   
 grant all on *.* to `starsky`@`%` with grant option;   
+
+### 4、wp
+映射文件需要绝对路径映射
+docker run --name wp -v /Users/yasin.yuan/Desktop/docker/php/php.ini:/usr/local/etc/php/php.ini wordpress
