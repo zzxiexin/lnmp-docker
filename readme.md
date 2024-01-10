@@ -32,6 +32,10 @@ docker pull mysql
 docker run -p 3306:3306 -d --name mysql -v ./docker/mysql/my.cnf:/etc/mysql/my.cnf --privileged=true -e MYSQL_ROOT_PASSWORD=root mysql
 ```
 
+```sh
+docker inspect mysql | grep "IPAddress"
+```
+
 -p 3306:3306 :将容器的3306端口映射到主机的3306端口   
 -d 后台运行(守护进程)   
 --name mysql：将容器命名为mysql   
@@ -41,6 +45,13 @@ docker run -p 3306:3306 -d --name mysql -v ./docker/mysql/my.cnf:/etc/mysql/my.c
 create user `starsky`@`%` identified by "root";   
 grant all on *.* to `starsky`@`%` with grant option;   
 
-### 4、wp
+### 4、wp + mysql
 映射文件需要绝对路径映射
-docker run --name wp -v /Users/yasin.yuan/Desktop/docker/php/php.ini:/usr/local/etc/php/php.ini wordpress
+
+```sh
+docker run -p 80:80 --name wp -v /Users/yasin.yuan/Desktop/docker/php/php.ini:/usr/local/etc/php/php.ini wordpress
+```
+```sh
+docker run -p 3306:3306 -d --name mysql -v ./docker/mysql/my.cnf:/etc/mysql/my.cnf --privileged=true -e MYSQL_ROOT_PASSWORD=root mysql
+```
+
