@@ -37,6 +37,6 @@ docker run -p 3306:3306 -d --name mysql -v ./docker/etc/my.cnf:/etc/mysql/my.cnf
 --name mysql：将容器命名为mysql   
 -v 将主机中的mysql配置挂载到容器的/etc/mysql/my.cnf   
 
-#### 设置连接权限
+#### 设置mysql连接权限
 create user `starsky`@`%` identified by "root";   
 grant all on *.* to `starsky`@`%` with grant option;   
